@@ -1,22 +1,28 @@
-#include <iostream>
+// main.cpp
+
 #include "Human.h"
 #include "Computer.h"
 #include "Referee.h"
+#include <iostream>
 
 int main() {
-    Human mei("Mei");
+    std::string human_name;
+    std::cout << "Enter your name: ";
+    std::cin >> human_name;
+
+    Human human(human_name);
     Computer computer;
     Referee referee;
 
-    Player* winner = referee.refGame(&mei, &computer);
+    Player* winner = referee.refGame(&human, &computer);
 
-    if (winner == &mei) {
-        std::cout << mei.getName() << " Wins" << std::endl;
-    } else if (winner == &computer) {
-        std::cout << computer.getName() << " Wins" << std::endl;
+    if (winner == nullptr) {
+        std::cout << "It's a Tie." << std::endl;
     } else {
-        std::cout << "It's a Tie" << std::endl;
+        std::cout << winner->getName() << " Wins." << std::endl;
     }
 
     return 0;
 }
+
+

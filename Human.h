@@ -2,17 +2,14 @@
 #define HUMAN_H
 
 #include "Player.h"
+#include <string>
 
 class Human : public Player {
 public:
-    Human();
-    explicit Human(const std::string& name);
-
-    char makeMove() override;
-    std::string getName() override;
-
+    Human(std::string name = "Human");
+    char makeMove();
 private:
     std::string name;
 };
 
-#endif
+#endif // HUMAN_H
