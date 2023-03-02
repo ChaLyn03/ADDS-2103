@@ -1,15 +1,12 @@
-// Player.h
+#include "Human.h"
+#include <iostream>
 
-#ifndef PLAYER_H
-#define PLAYER_H
+Human::Human(std::string name) : Player(name) {}
 
-#include <string>
+char Human::makeMove() {
+    std::cout << "Enter move: ";
+    char move;
+    std::cin >> move;
+    return move;
+}
 
-class Player {
-public:
-    virtual char makeMove() = 0;
-    virtual std::string getName() { return ""; };
-    virtual ~Player() {};
-};
-
-#endif // PLAYER_H
