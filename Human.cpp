@@ -1,10 +1,6 @@
 #include "Human.h"
 #include <iostream>
 
-Human::Human() {
-    name_ = "Human";
-}
-
 Human::Human(std::string name) {
     name_ = name;
 }

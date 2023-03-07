@@ -8,7 +8,7 @@
 
 int main() {
     std::unique_ptr<Player> computer(new Computer());
-    std::unique_ptr<Player> human(new Human("Player 1"));
+    std::unique_ptr<Player> human(new Human());
     Referee ref;
     ref.refGame(computer.get(), human.get());
 
