@@ -2,14 +2,15 @@
 #define HUMAN_H
 
 #include "Player.h"
-#include <string>
 
 class Human : public Player {
 public:
-    Human(std::string name = "Human");
+    Human();
+    Human(std::string name);
     char makeMove();
+    std::string getName();
 private:
-    std::string name;
+    std::string name_;
 };
 
-#endif // HUMAN_H
+#endif /* HUMAN_H */

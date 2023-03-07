@@ -9,4 +9,4 @@ public:
     virtual std::string getName() = 0;
 };
 
-#endif
+#endif /* PLAYER_H */

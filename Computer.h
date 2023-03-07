@@ -5,8 +5,8 @@
 
 class Computer : public Player {
 public:
-    char makeMove() override;
-    std::string getName() override;
+    char makeMove();
+    std::string getName();
 };
 
-#endif
+#endif /* COMPUTER_H */
