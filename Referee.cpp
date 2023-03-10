@@ -18,9 +18,11 @@ Player* Referee::refGame(Player* player1, Player* player2) {
     //and conditions for winning as player 1 using dynamic logic
     //indifferent to computer always choosing Rock
     //could be paper or scissors and would still work
-        if (move1 == 'R' && move2 == 'S' || move1 == 'S' && move2 == 'P' || move1 == 'P' && move2 == 'R') {
+        if (move1 == 'Rock' && move2 == 'Scissors' || move1 == 'Scissors' && move2 == 'Paper' || move1 == 'Paper' && move2 == 'Rock') {
         std::cout << player1->getName() << " wins!" << std::endl;
         return player1;
+
+        if (move1 == '')
     }
     //otherwise the second player wins
     std::cout << player2->getName() << " wins!" << std::endl;
