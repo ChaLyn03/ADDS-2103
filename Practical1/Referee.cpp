@@ -21,8 +21,6 @@ Player* Referee::refGame(Player* player1, Player* player2) {
         if (move1 == 'Rock' && move2 == 'Scissors' || move1 == 'Scissors' && move2 == 'Paper' || move1 == 'Paper' && move2 == 'Rock') {
         std::cout << player1->getName() << " wins!" << std::endl;
         return player1;
-
-        if (move1 == '')
     }
     //otherwise the second player wins
     std::cout << player2->getName() << " wins!" << std::endl;
