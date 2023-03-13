@@ -3,12 +3,14 @@
 
 #include "Player.h"
 
+//Inheriting abstract Player class
 class Human : public Player {
 public:
+    //Setting default human name to "Human"
     Human(std::string name = "Human");
-    Move makeMove() override;
-    std::string getName() override;
-    std::vector<Move> getMoves() override;
+    //Straight inheritance of getName() from Player class
+    char makeMove();
+    std::string getName();
 private:
     std::string name_;
 };
