@@ -1,22 +1,27 @@
 #include "Human.h"
 #include <iostream>
+#include <string>
 
-// Constructing "Human" class with string type parameter "name"
-Human::Human(std::string name) {
-    name_ = name;
+Human::Human() {}
+
+Human::Human(std::vector<Move*> moves) : Player(moves) {}
+
+Human::~Human() {}
+
+Move* Human::makeMove() {
+    std::string input;
+    std::cout << "Enter your move: ";
+    std::cin >> input;
+    for (auto move : m_moves) {
+        if (move->getName() == input) {
+            m_lastMove = move;
+            return move;
+        }
+    }
+    std::cout << "Invalid move. Please try again." << std::endl;
+    return makeMove();
 }
 
-//Implementation of makeMove()
-//Displaying entry prompt and storing value using makeMove() member
-char Human::makeMove() {
-    char move;
-    std::cout << "Enter move: ";
-    std::cin >> move;
-    return move;
-}
-
-//Implementation of getName()
-//Returning name from the name parameter
-std::string Human::getName() {
-    return name_;
+void Human::learn(Move* opponentMove) {
+    // do nothing
 }

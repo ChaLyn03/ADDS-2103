@@ -1,28 +1,39 @@
 #include "Referee.h"
 #include <iostream>
 
-//Empty referee constructor for referee class
 Referee::Referee() {}
 
-//refGame method of referee class taking player pointers as parameters
-//returns another Player pointer
-Player* Referee::refGame(Player* player1, Player* player2) {
-    //calling and storing moves for both players
-    char move1 = player1->makeMove();
-    char move2 = player2->makeMove();
+Referee::~Referee() {}
 
-    //determining winner of game with ties resulting in nullptr
-    if (move1 == move2) {
-        return nullptr;
+void Referee::refGame(Player* p1, Player* p2) {
+    std::cout << "Rock Paper Scissors Robot Zombie Pirate Ninja Monkey!" << std::endl;
+    std::cout << "Let's play!" << std::endl;
+    int round = 1;
+    int p1Wins = 0;
+    int p2Wins = 0;
+    int ties = 0;
+    while (round <= 5) {
+        std::cout << "Round " << round << "!" << std::endl;
+        Move* p1Move = p1->makeMove();
+        Move* p2Move = p2->makeMove();
+        std::cout << "Player 1: " << p1Move->getName() << std::endl;
+        std::cout << "Player 2: " << p2Move->getName() << std::endl;
+        if (p1Move->beats(p2Move)) {
+            std::cout << "Player 1 wins the round!" << std::endl;
+            p1->learn(p2Move);
+            p1Wins++;
+        } else if (p2Move->beats(p1Move)) {
+            std::cout << "Player 2 wins the round!" << std::endl;
+            p2->learn(p1Move);
+            p2Wins++;
+        } else {
+            std::cout << "Tie!" << std::endl;
+            ties++;
+        }
+        round++;
     }
-    //and conditions for winning as player 1 using dynamic logic
-    //indifferent to computer always choosing Rock
-    //could be paper or scissors and would still work
-        if (move1 == 'Rock' && move2 == 'Scissors' || move1 == 'Scissors' && move2 == 'Paper' || move1 == 'Paper' && move2 == 'Rock') {
-        std::cout << player1->getName() << " wins!" << std::endl;
-        return player1;
-    }
-    //otherwise the second player wins
-    std::cout << player2->getName() << " wins!" << std::endl;
-    return player2;
+    std::cout << "Game over!" << std::endl;
+    std::cout << "Player 1 wins: " << p1Wins << std::endl;
+    std::cout << "Player 2 wins: " << p2Wins << std::endl;
+    std::cout << "Ties: " << ties << std::endl;
 }

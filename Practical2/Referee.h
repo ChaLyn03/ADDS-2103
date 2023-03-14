@@ -3,12 +3,11 @@
 
 #include "Player.h"
 
-//Referee class definition for adjudicating the game
 class Referee {
 public:
     Referee();
-    //Taking player pointers as parameters
-    Player* refGame(Player* player1, Player* player2);
+    virtual ~Referee();
+    void refGame(Player* p1, Player* p2);
 };
 
-#endif /* REFEREE_H */
+#endif

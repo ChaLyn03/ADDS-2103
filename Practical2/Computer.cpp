@@ -1,13 +1,15 @@
 #include "Computer.h"
 
-//Initialising makeMove() for Computer instance
-//Always returns R for Rock
-char Computer::makeMove() {
-    return 'R';
+Computer::Computer() {}
+
+Computer::Computer(std::vector<Move*> moves) : Player(moves) {}
+
+Computer::~Computer() {}
+
+Move* Computer::makeMove() {
+    return m_moves.at(0);
 }
 
-//Initialising getName() for computer instance
-//Name is Computer
-std::string Computer::getName() {
-    return "Computer";
+void Computer::learn(Move* opponentMove) {
+    // do nothing
 }

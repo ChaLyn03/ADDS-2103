@@ -1,17 +1,19 @@
-// Abstract class "Player", containing two virtual members
-// makeMove() and getName() that are inherited by the concrete classes
-// "Human" and "Computer"
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <string>
+#include "Move.h"
+#include <vector>
 
 class Player {
 public:
-// makeMove() takes the character input from the user for the desired move
-// getName() returns the name of user if passed, "Human" otherwise
-    virtual char makeMove() = 0;
-    virtual std::string getName() = 0;
+    Player();
+    Player(std::vector<Move*> moves);
+    virtual ~Player();
+    virtual Move* makeMove() = 0;
+    virtual void learn(Move* opponentMove) = 0;
+protected:
+    std::vector<Move*> m_moves;
+    Move* m_lastMove;
 };
 
-#endif /* PLAYER_H */
+#endif
